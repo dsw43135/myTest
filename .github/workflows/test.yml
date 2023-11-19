@@ -1,0 +1,20 @@
+name: Automatyczne testowanie - Windows
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+defaults:
+  runs:
+    shell: powershell
+    os: windows-latest
+
+jobs:
+  build_and_test:
+    runs-on: windows-latest
+
+
