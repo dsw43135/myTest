@@ -9,8 +9,16 @@ on:
   workflow_dispatch:
   
 jobs:
-  build_and_test:
+  setup-python:
     runs-on: windows-latest
     steps:
-        -run: node --version
-
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v4
+      with:
+         python-version: '3.10'   
+    - run: pip install pytest
+    - run: pip install PyQt5
+    - run: pip install pyinstaller
+    - run: pytest
+      continue-on-error: false
+    - run: pyinstaller.exe --onefile --noconsole Mytest43135.py
