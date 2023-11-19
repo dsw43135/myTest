@@ -7,14 +7,10 @@ on:
     branches:
       - master
   workflow_dispatch:
-
-defaults:
-  runs:
-    shell: powershell
-    os: windows-latest
-
+  
 jobs:
   build_and_test:
     runs-on: windows-latest
-
+    steps:
+        -run: node --version
 

@@ -8,15 +8,8 @@ on:
       - master
   workflow_dispatch:
 
-defaults:
-  runs:
-    shell: powershell
-    os: windows-latest
-
 jobs:
-  build:
+  first-job:
     runs-on: windows-latest
-
     steps:
-      - name: Example Step
-        run: echo "Hello, World!"
+        - run: node --version
